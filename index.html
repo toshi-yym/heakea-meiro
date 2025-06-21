@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>白詰草のヘアケア迷路</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #hintBox{margin-top:12px;display:flex;align-items:center;justify-content:center;}
+    #hintBox img{width:60px;height:auto;margin-right:6px;}
+    #hintText{background:#fff9c4;border:2px solid #ffe082;border-radius:10px;padding:6px 10px;max-width:200px;font-size:14px;color:#555;position:relative;}
+    #hintText::after{content:"";position:absolute;left:-6px;top:12px;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-right:6px solid #ffe082;}
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="gameCanvas" width="640" height="640"></canvas>
+    <!-- On-screen controls for touch devices -->
+    <div id="controls">
+      <button class="ctrl" data-dir="up">▲</button>
+      <div>
+        <button class="ctrl" data-dir="left">◀</button>
+        <button class="ctrl" data-dir="down">▼</button>
+        <button class="ctrl" data-dir="right">▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz modal -->
+  <div id="modal" class="hidden">
+    <div id="modal-content">
+      <p id="question"></p>
+      <div id="answers"></div>
+      
+      <div id="hintBox">
+        <img id="hintChar" src="shirotsume.png" alt="しろつめ君" />
+        <p id="hintText"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Goal message -->
+  <div id="goal-msg" class="hidden">
+    <p>正しい知識と施術をすればアナタの髪も絶対キレイになります。<br />
+    アナタが本気で髪を綺麗にしたいと思ったら、いつでもお手伝いさせて貰います♪</p>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
