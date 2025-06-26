@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>白詰草のヘアケア迷路</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="cheer.css" />
   <style>
     #hintBox{margin-top:12px;display:flex;align-items:center;justify-content:center;}
     #hintBox img{width:60px;height:auto;margin-right:6px;}
@@ -15,13 +16,18 @@
 <body>
   <div id="game-container">
     <canvas id="gameCanvas" width="640" height="640"></canvas>
-    <!-- On-screen controls for touch devices -->
-    <div id="controls">
-      <button class="ctrl" data-dir="up">▲</button>
-      <div>
-        <button class="ctrl" data-dir="left">◀</button>
-        <button class="ctrl" data-dir="down">▼</button>
-        <button class="ctrl" data-dir="right">▶</button>
+    <!-- Bottom UI: controls + cheer -->
+    <div id="bottom-ui">
+      <div id="controls">
+        <button class="ctrl" data-dir="up">▲</button>
+        <div>
+          <button class="ctrl" data-dir="left">◀</button>
+          <button class="ctrl" data-dir="down">▼</button>
+          <button class="ctrl" data-dir="right">▶</button>
+        </div>
+      </div>
+      <div id="cheer" style="display:none;">
+        <div id="cheerBubble">頑張れ～</div>
       </div>
     </div>
   </div>

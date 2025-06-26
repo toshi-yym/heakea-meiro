@@ -38,6 +38,14 @@ let collected = {};
 items.forEach(it => (collected[it.key] = false));
 let hairLevel = 0; // 0-3
 
+// ===== Cheer Bubble =====
+const cheerBubble = document.getElementById("cheerBubble");
+function updateCheer(){
+  const phrases=["頑張れ～","こっちだよ～","あと少しだよ～",""]; // for hairLevel 0-3
+  cheerBubble.textContent = phrases[Math.min(hairLevel,3)];
+}
+updateCheer();
+
 const player = { col: 0, row: 0 };
 
 // ============== CANVAS =================
@@ -236,10 +244,20 @@ let modalVisible = false;
 
 // ==== Correct answer overlay ====
 const correctMsg = document.createElement("div");
+// ===== Wrong answer overlay =====
+const wrongMsg = document.createElement("div");
 correctMsg.id = "correct-msg";
 correctMsg.classList.add("hidden");
 correctMsg.textContent = "正解！";
 document.body.appendChild(correctMsg);
+wrongMsg.id = "wrong-msg";
+wrongMsg.classList.add("hidden");
+wrongMsg.innerHTML = "残念<br><span style='font-size:32px'>もう1度挑戦しよう！</span>";
+document.body.appendChild(wrongMsg);
+function showWrongMsg(){
+  wrongMsg.classList.remove("hidden");
+  setTimeout(()=>wrongMsg.classList.add("hidden"),1200);
+}
 
 function showCorrectMsg() {
   correctMsg.classList.remove("hidden");
@@ -265,10 +283,11 @@ function showQuiz(item) {
     btn.onclick = () => {
       if (idx === item.quiz.correct) {
         hairLevel = Math.min(hairLevel + 1, 3);
+        updateCheer();
         collected[item.key] = true;
         showCorrectMsg();
       } else {
-        alert("残念…\n" + item.quiz.hint);
+        showWrongMsg();
       }
       modal.classList.add("hidden");
       modalVisible = false;
