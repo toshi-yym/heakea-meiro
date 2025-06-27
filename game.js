@@ -318,15 +318,25 @@ const goalFinishMsg = document.createElement("div");
 goalFinishMsg.id = "goal-finish-popup";
 goalFinishMsg.classList.add("hidden");
 goalFinishMsg.textContent = "ゴール！";
-goalFinishMsg.style.cssText = "position:fixed;top:25%;left:50%;transform:translate(-50%,0);font-size:96px;font-weight:900;color:#4caf50;text-shadow:0 4px 8px rgba(0,0,0,0.3);background:rgba(255,255,255,0.95);border:6px solid #a5d6a7;border-radius:24px;padding:20px 40px;z-index:2000;animation:pop 0.6s ease-out;text-align:center;";
+// responsive style using vw so it scales on mobile
+goalFinishMsg.style.cssText = `position:fixed;top:25%;left:50%;transform:translate(-50%,0);
+  font-size:clamp(24px,8vw,72px);font-weight:900;color:#4caf50;
+  text-shadow:0 4px 8px rgba(0,0,0,0.3);
+  background:rgba(255,255,255,0.95);
+  border:6px solid #a5d6a7;border-radius:24px;padding:12px 24px;
+  z-index:2500;animation:pop 0.6s ease-out;text-align:center;`;
 document.body.appendChild(goalFinishMsg);
 function showGoalFinishMsg(){
   goalFinishMsg.classList.remove("hidden");
+  // hide popup after 1.5s and then show long message
+  setTimeout(() => {
+    goalFinishMsg.classList.add("hidden");
+    document.getElementById("goal-msg").classList.remove("hidden");
+  }, 1500);
 }
 
 function checkGoal() {
   if (maze[player.row][player.col] === 2 && hairLevel === 3) {
-    document.getElementById("goal-msg").classList.remove("hidden");
     showGoalFinishMsg();
   }
 }
