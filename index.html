@@ -13,8 +13,23 @@
     #hintText{background:#fff9c4;border:2px solid #ffe082;border-radius:10px;padding:6px 10px;max-width:200px;font-size:14px;color:#555;position:relative;}
     #hintText::after{content:"";position:absolute;left:-6px;top:12px;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-right:6px solid #ffe082;}
 
-    /* ====== Responsive layout (≤ 600px) ====== */
-    @media (max-width: 600px) {
+    /* ====== Goal overlay global tweak ====== */
+    #goal-msg {
+      background: transparent !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(18px, 5vw, 32px) !important;
+    }
+    #goal-msg p {
+      font-size: clamp(18px, 5vw, 32px) !important;
+      padding: 12px 20px;
+      line-height: 1.5;
+      max-width: 90vw;
+    }
+
+    /* ====== Responsive layout (≤ 768px) ====== */
+    @media (max-width: 768px) {
       body {
         height: auto;              /* allow page scroll */
         padding: 16px;
@@ -44,19 +59,7 @@
         max-width: 90% !important;
       }
       #hintChar {width: 80px !important;}
-      /* Goal overlay container */
-      #goal-msg {
-        background: transparent !important;   /* remove white full-screen overlay */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      #goal-msg p {
-        font-size: clamp(16px, 4.5vw, 32px) !important;
-        padding: 10px 14px;
-        line-height: 1.5;
-        max-width: 90vw;
-      }
+
       #correct-msg,
       #wrong-msg {
         font-size: 32px;
