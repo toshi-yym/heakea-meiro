@@ -89,15 +89,16 @@ canvas{
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.9);
+  background: transparent; /* remove white overlay */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
-  font-size: 34px;
-  line-height: 1.6;
+  padding: 12px;
+  font-size: clamp(18px, 5vw, 32px);
+  line-height: 1.5;
   color: #555;
+  z-index: 2000;
 }
 #question{
   font-size: 48px;
@@ -127,11 +128,11 @@ canvas{
 
 #goal-msg p {
   background: #fffdf9;
-  padding: 32px 48px;
-  border: 6px solid #ffb3c6;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  font-size: 38px;
+  padding: 16px 24px;
+  border: 4px solid #ffb3c6;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: clamp(18px, 5vw, 32px);
 }
 
 /* === 正解 Overlay === */
