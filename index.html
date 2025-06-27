@@ -44,8 +44,15 @@
         max-width: 90% !important;
       }
       #hintChar {width: 80px !important;}
+      /* Goal overlay container */
+      #goal-msg {
+        background: transparent !important;   /* remove white full-screen overlay */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       #goal-msg p {
-        font-size: 4.5vw !important;
+        font-size: clamp(16px, 4.5vw, 32px) !important;
         padding: 10px 14px;
         line-height: 1.5;
         max-width: 90vw;
