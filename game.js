@@ -410,6 +410,14 @@ function drawMaze() {
       }
       ctx.fillStyle = grad;
       ctx.fill();
+      // draw goal label
+      if (val === 2) {
+        ctx.fillStyle = "#d88c00"; // accent color
+        ctx.font = `${Math.floor(tileSize * 0.35)}px sans-serif`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("ゴール", x + tileSize / 2, y + tileSize / 2);
+      }
       ctx.restore();
     }
   }
