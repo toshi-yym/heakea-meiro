@@ -29,9 +29,9 @@ let itemW = 0;
 itemsSprite.onload = () => { itemW = itemsSprite.width / 3; render(); };
 
 const items = [
-  { name: "シャンプー", key: "shampoo", col: 2, row: 1, spriteIdx: 0, quiz: { q: "シャンプーで大事なのはどっち？", a: ["髪の毛を洗う", "頭皮を洗う"], correct: 0, hint: "頭皮の汚れは予洗いでほとんど取れるよ！" } },
+  { name: "シャンプー", key: "shampoo", col: 7, row: 7, spriteIdx: 0, quiz: { q: "シャンプーで大事なのはどっち？", a: ["髪の毛を洗う", "頭皮を洗う"], correct: 0, hint: "頭皮の汚れは予洗いでほとんど取れるよ！" } },
   { name: "トリートメント", key: "treatment", col: 7, row: 4, spriteIdx: 1, quiz: { q: "髪の傷みはトリートメントで治る？", a: ["治る", "治らない"], correct: 1, hint: "髪は一度傷んだら治らない死滅細胞なんだよ！" } },
-  { name: "ドライヤー", key: "dryer", col: 7, row: 7, spriteIdx: 2, quiz: { q: "髪の乾かし方はどっちが良い？", a: ["半乾きで終わる", "完全に乾かす"], correct: 1, hint: "髪は濡れた状態が一番傷みやすいよ！" } }
+  { name: "ドライヤー", key: "dryer", col: 2, row: 1, spriteIdx: 2, quiz: { q: "髪の乾かし方はどっちが良い？", a: ["半乾きで終わる", "完全に乾かす"], correct: 1, hint: "髪は濡れた状態が一番傷みやすいよ！" } }
 ];
 
 let collected = {};
